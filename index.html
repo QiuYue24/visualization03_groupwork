@@ -1,18 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Project</title>
-
-  <!-- 引入外部 CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>药业公司控制网络分析</title>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  
-  <h1>Hello, World!</h1>
+  <div id="app-container">
+    <!-- 主控制面板 -->
+    <div id="control-panel">
+      <h2>药业控制网络分析</h2>
+      <div class="control-group">
+        <label for="company-selector">选择制药公司：</label>
+        <select id="company-selector">
+          <option value="ALL">全部公司</option>
+          <!-- 动态填充 -->
+        </select>
+      </div>
+      <div id="company-info-card">
+        <h3 id="selected-company">未选择公司</h3>
+        <div class="info-row">
+          <span>子公司数量：</span>
+          <strong id="subsidiary-count">0</strong>
+        </div>
+        <div class="info-row">
+          <span>总控制资产：</span>
+          <strong id="total-assets">$0 M</strong>
+        </div>
+        <div class="info-row">
+          <span>平均控制权：</span>
+          <strong id="avg-ownership">0%</strong>
+        </div>
+      </div>
+    </div>
 
-  <!-- 引入外部 JavaScript -->
-  <script src="js/script.js"></script>
+    <!-- 可视化容器 -->
+    <div id="visualization-container">
+      <div id="map"></div>
+      <div id="matrix-container">
+        <h3>城市控制矩阵</h3>
+        <table id="control-matrix">
+          <thead>
+            <tr>
+              <th>城市</th>
+              <th>子公司数</th>
+              <th>平均控制%</th>
+              <th>主要功能</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

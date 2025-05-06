@@ -1,9 +1,95 @@
+/* 基础样式 */
 body {
-    background-color: #f0f0f0;
-    font-family: sans-serif;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+#app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 控制面板样式 */
+#control-panel {
+  width: 300px;
+  padding: 20px;
+  background: #f5f7fa;
+  border-right: 1px solid #ddd;
+}
+
+.control-group {
+  margin-bottom: 20px;
+}
+
+#company-selector {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#company-info-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+/* 可视化区域样式 */
+#visualization-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#map {
+  height: 60vh;
+  border-bottom: 1px solid #ddd;
+}
+
+#matrix-container {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+#control-matrix {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#control-matrix th, #control-matrix td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#control-matrix tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* 地图标记样式 */
+.mapboxgl-marker {
+  cursor: pointer;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  #app-container {
+    flex-direction: column;
   }
-  
-  h1 {
-    color: steelblue;
+  #control-panel {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
   }
-  
+}
