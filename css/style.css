@@ -1,4 +1,3 @@
-/* 基础样式 */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -10,22 +9,19 @@ body {
   min-height: 100vh;
 }
 
-/* 控制面板样式 */
+/* 控制面板 */
 #control-panel {
   width: 300px;
   padding: 20px;
   background: #f5f7fa;
   border-right: 1px solid #ddd;
-}
-
-.control-group {
-  margin-bottom: 20px;
+  overflow-y: auto;
 }
 
 #company-selector {
   width: 100%;
   padding: 8px;
-  margin-top: 5px;
+  margin: 5px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -34,7 +30,7 @@ body {
   background: white;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
 }
 
@@ -44,16 +40,16 @@ body {
   margin: 10px 0;
 }
 
-/* 可视化区域样式 */
+/* 可视化区域 */
 #visualization-container {
   flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 #map {
   height: 60vh;
-  border-bottom: 1px solid #ddd;
 }
 
 #matrix-container {
@@ -67,26 +63,56 @@ body {
   border-collapse: collapse;
 }
 
-#control-matrix th, #control-matrix td {
-  padding: 10px;
+#control-matrix th,
+#control-matrix td {
+  padding: 8px;
   border: 1px solid #ddd;
-  text-align: left;
 }
 
-#control-matrix tr:nth-child(even) {
-  background-color: #f9f9f9;
+/* 加载指示器 */
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  display: none;
+  z-index: 1000;
 }
 
-/* 地图标记样式 */
-.mapboxgl-marker {
-  cursor: pointer;
+/* 图例 */
+#legend {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
-/* 响应式设计 */
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border: 1px solid #fff;
+}
+
+/* 响应式 */
 @media (max-width: 768px) {
   #app-container {
     flex-direction: column;
   }
+
   #control-panel {
     width: auto;
     border-right: none;

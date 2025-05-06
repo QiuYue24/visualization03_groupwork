@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>药业公司控制网络分析</title>
+  <title>全球药业控制网络可视化</title>
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="app-container">
-    <!-- 主控制面板 -->
+    <!-- 控制面板 -->
     <div id="control-panel">
       <h2>药业控制网络分析</h2>
       <div class="control-group">
         <label for="company-selector">选择制药公司：</label>
         <select id="company-selector">
-          <option value="ALL">全部公司</option>
-          <!-- 动态填充 -->
+          <option value="ALL">加载中...</option>
         </select>
       </div>
       <div id="company-info-card">
@@ -36,7 +35,7 @@
       </div>
     </div>
 
-    <!-- 可视化容器 -->
+    <!-- 可视化区域 -->
     <div id="visualization-container">
       <div id="map"></div>
       <div id="matrix-container">
@@ -52,6 +51,27 @@
           </thead>
           <tbody></tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- 加载指示器 -->
+    <div id="loading">
+      <h3>数据加载中...</h3>
+    </div>
+
+    <!-- 图例 -->
+    <div id="legend">
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #e41a1c;"></div>
+        <span>总部</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #377eb8;"></div>
+        <span>子公司</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #984ea3;"></div>
+        <span>混合型</span>
       </div>
     </div>
   </div>
