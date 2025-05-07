@@ -36,11 +36,36 @@
     </div>
 
     <!-- 可视化区域 -->
-    <div id="visualization-container">
-      <div id="map"></div>
-      <div id="matrix-container">
-        <h3>城市控制矩阵</h3>
-        <table id="control-matrix">
+    <!-- 页面整体容器 -->
+   <!-- 页面整体容器：上下结构 -->
+    <div id="visualization-container" style="display: flex; flex-direction: column; height: 100vh;">
+      
+      <!-- 地图区域：占上方 -->
+      <div id="map-container" style="flex: 2; position: relative;">
+        <div id="map" style="width: 100%; height: 100%;"></div>
+
+        <!-- 饼图浮动在地图右上角 -->
+        <div id="pie-chart" style="
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          width: 300px;
+          height: 300px;
+          z-index: 10;
+          pointer-events: none;
+        "></div>
+      </div>
+
+      <!-- 控制矩阵区域：在地图下方 -->
+      <div id="matrix-container" style="
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+      ">
+        <h3 style="margin-top: 0;">城市控制矩阵</h3>
+        <table id="control-matrix" style="width: 100%; border-collapse: collapse;">
           <thead>
             <tr>
               <th>城市</th>
@@ -55,9 +80,21 @@
     </div>
 
     <!-- 加载指示器 -->
-    <div id="loading">
+    <div id="loading" style="
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 1000;
+      text-align: center;
+      padding-top: 200px;
+    ">
       <h3>数据加载中...</h3>
     </div>
+
+
+    
 
     <!-- 图例 -->
     <div id="legend">
@@ -76,8 +113,10 @@
     </div>
   </div>
 
+  
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main copy 3.js"></script>
 </body>
 </html>
